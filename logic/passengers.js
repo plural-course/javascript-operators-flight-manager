@@ -4,14 +4,14 @@
         if(totalNumberOfPassengers < flightCapacity){
             return totalNumberOfPassengers;
         }else{
-            return Error;
+            return new Error("error passengers");
         }
     }
     function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats) {
-            var vipPassengersWithBusinessSeats, 
-            vipPassengerswithEconomySeats, 
-            regularPassengersWithBusinessSeats, 
-            regularPassengersWithEconomySeats;
+            var vipPassengersWithBusinessSeats =0; 
+            var vipPassengerswithEconomySeats=0;
+            var regularPassengersWithBusinessSeats=0;
+            var regularPassengersWithEconomySeats=0;
 
         if(vipPassengers > numberOfBusinessSeats){
             vipPassengersWithBusinessSeats = vipPassengers - numberOfBusinessSeats;
@@ -23,6 +23,8 @@
                 vipPassengerswithEconomySeats = vipPassengers;
                 vipPassengers = 0;
             }
+            regularPassengersWithEconomySeats = regularPassengers;
+            numberOfEconomySeats -= regularPassengers
         }else {
             //vip
             vipPassengersWithBusinessSeats = numberOfBusinessSeats - vipPassengers;
@@ -33,8 +35,6 @@
                 numberOfBusinessSeats = 0;
             regularPassengersWithEconomySeats = regularPassengers;
             numberOfEconomySeats -= regularPassengers
-            
-            
         }
         
         var obj = {
@@ -44,7 +44,7 @@
             regularPassengersWithEconomySeats: regularPassengersWithEconomySeats
         }
         
-
+        console.log(obj);
         return obj;
     }
 
