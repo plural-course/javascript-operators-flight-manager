@@ -11,12 +11,12 @@
     function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers,
          numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats) {
              
-            var vipPassengersWithBusinessSeats =0; 
-            var vipPassengersWithEconomySeats=0;
-            var regularPassengersWithBusinessSeats=0;
-            var regularPassengersWithEconomySeats=0;
-            var availableBusinessSeats = numberOfFlights * numberOfBusinessSeats;
-            var availableEconomySeats = numberOfFlights * numberOfEconomySeats;
+            let vipPassengersWithBusinessSeats =0; 
+            let vipPassengersWithEconomySeats=0;
+            let regularPassengersWithBusinessSeats=0;
+            let regularPassengersWithEconomySeats=0;
+            let availableBusinessSeats = numberOfFlights * numberOfBusinessSeats;
+            let availableEconomySeats = numberOfFlights * numberOfEconomySeats;
 
             var vipBusinessConfig = {passengers:vipPassengers, seats: availableBusinessSeats};
             vipPassengersWithBusinessSeats = updateSeats(vipBusinessConfig, numberOfBusinessSeats);
@@ -32,14 +32,12 @@
         
 
 
-        var obj = {
+        return{
             vipPassengersWithBusinessSeats: vipPassengersWithBusinessSeats,
-            vipPassengerswithEconomySeats: vipPassengersWithEconomySeats,
+            vipPassengersWithEconomySeats: vipPassengersWithEconomySeats,
             regularPassengersWithBusinessSeats: regularPassengersWithBusinessSeats,
             regularPassengersWithEconomySeats: regularPassengersWithEconomySeats
-        }
-        
-        return obj;
+        };
     }
 
     function updateSeats (config, seatsPerFLight){
