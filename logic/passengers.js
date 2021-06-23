@@ -8,7 +8,9 @@
             return totalNumberOfPassengers;
         }
     }
-    function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats) {
+    function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers,
+         numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats) {
+             
             var vipPassengersWithBusinessSeats =0; 
             var vipPassengersWithEconomySeats=0;
             var regularPassengersWithBusinessSeats=0;
@@ -16,16 +18,16 @@
             var availableBusinessSeats = numberOfFlights * numberOfBusinessSeats;
             var availableEconomySeats = numberOfFlights * numberOfEconomySeats;
 
-            vipBusinessConfig = {passengers:vipPassengers, seats: availableBusinessSeats};
+            var vipBusinessConfig = {passengers:vipPassengers, seats: availableBusinessSeats};
             vipPassengersWithBusinessSeats = updateSeats(vipBusinessConfig, numberOfBusinessSeats);
 
-            vipRegularConfig = {passengers:vipBusinessConfig.passengers, seats: availableEconomySeats};
+            var vipRegularConfig = {passengers:vipBusinessConfig.passengers, seats: availableEconomySeats};
             vipPassengersWithEconomySeats = updateSeats(vipRegularConfig, numberOfEconomySeats);
 
-            regularBusinessConfig= { passengers: regularPassengers, seats: vipBusinessConfig.seats };
+            var regularBusinessConfig= { passengers: regularPassengers, seats: vipBusinessConfig.seats };
             regularPassengersWithBusinessSeats = updateSeats(regularBusinessConfig, numberOfBusinessSeats);
 
-            regularEconomyConfig= { passengers: regularBusinessConfig.passengers, seats: vipRegularConfig.seats };
+            var regularEconomyConfig= { passengers: regularBusinessConfig.passengers, seats: vipRegularConfig.seats };
             regularPassengersWithEconomySeats = updateSeats(regularEconomyConfig, numberOfEconomySeats);
         
 
@@ -42,12 +44,12 @@
 
     function updateSeats (config, seatsPerFLight){
         let passengersWithSeats = 0;
+        
         while(config.passengers > 0){
             if(config.seats > 0){
                 if(config.passengers >= config.seats){
-                    //jesli wiecej pasazerow od siedzen
-                    
-                    if(config.seats > seatsPerFLight){
+                    //jesli wiecej pasazerow od siedzen                    
+                    if(config.seats > config.seatsPerFLight){
                     //jesli wiecej siedzen ogolnych od siedzen na jeden lot
                     config.passengers -= seatsPerFLight;                    
                     config.seats -= seatsPerFLight;
