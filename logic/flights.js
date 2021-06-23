@@ -1,3 +1,4 @@
+"use strict"
 function Flights() {
     function calculateNumberOfFlights(passengers, capacity) {
         let numberOfFlights;
