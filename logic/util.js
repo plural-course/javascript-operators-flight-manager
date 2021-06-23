@@ -1,9 +1,8 @@
 function Util() {
-    function calculateTotalDistributedPassengers(vipPassengers, regularPassengers, numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats){
-        var obj = distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats);
+    function calculateTotalDistributedPassengers(distributedPassengers){
         var totalPassengers = 0;
-        for (var property in obj) {
-            totalPassengers += object[property];
+        for (var property in distributedPassengers) {
+            totalPassengers += distributedPassengers[property];
         }
 
         return totalPassengers;

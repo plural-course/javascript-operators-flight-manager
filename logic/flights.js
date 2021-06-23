@@ -1,11 +1,11 @@
 function Flights() {
     function calculateNumberOfFlights(passengers, capacity) {
-        var numberOfFlights = 0;
-        if( (passengers < 0) || (!Number.isInteger(Number(capacity)))) {
-            throw new Error("The number of passengers must be a positive integer value");
+        var numberOfFlights;
+        if( (passengers < 0) || (!Number.isInteger(Number(passengers)))) {
+            throw new Error("The number of passengers must be a positive integer value")
         }
         if((capacity < 0) || (!Number.isInteger(Number(capacity)))){
-            throw new Error("The capacity of the flight must be a positive integer value");
+            throw new Error("The capacity of the flight must be a positive integer value")
         }
 
         if(passengers % capacity == 0){
@@ -16,17 +16,18 @@ function Flights() {
 
         return numberOfFlights;
     }
+
     function checkAircraftRevision(distanceLimit, distancesArray){
         totalDistance = distancesArray.reduce((a, b) => a + b, 0);
 
-        if( totalDistance <= 0.5 * distanceLimit){
-            return "The revision needs to be done within the next 3 months";
-        }else if( totalDistance <= 0.75 * distanceLimit ){
-            return "The revision needs to be done within the next 2 months";
+        if( totalDistance <= distanceLimit/2){
+            return "The revision needs to be done within the next 3 months"
+        }else if( totalDistance <= 3 * distanceLimit/4 ){
+            return "The revision needs to be done within the next 2 months"
         }else if( totalDistance > 0.75 * distanceLimit && totalDistance <= distanceLimit ){
-            return "The revision needs to be done within the next month";
+            return "The revision needs to be done within the next month"
         }else {
-            throw Error;
+            throw new Error("Flight maximum allowed distance (" + distanceLimit + ") exceeded. No flight is allowed any longer, you need to make the revision immediately.");
         }
 
     }
