@@ -37,13 +37,11 @@
             regularPassengersWithEconomySeats: regularPassengersWithEconomySeats
         }
         
-        console.log(obj);
         return obj;
     }
 
     function updateSeats (config, seatsPerFLight){
         let passengersWithSeats = 0;
-        console.log('config' + JSON.stringify(config) + ' siedzenia na lot: ' + seatsPerFLight);
         while(config.passengers > 0){
             if(config.seats > 0){
                 if(config.passengers >= config.seats){
@@ -51,24 +49,14 @@
                     
                     if(config.seats > seatsPerFLight){
                     //jesli wiecej siedzen ogolnych od siedzen na jeden lot
-                    console.log('wiecej pasazerow od siedzen');
                     config.passengers -= seatsPerFLight;                    
                     config.seats -= seatsPerFLight;
                     passengersWithSeats += seatsPerFLight;
-
-                    console.log('config.passengers: ' + config.passengers + 'config.seats ' + config.seats
-                    + 'seats per flight: ' + seatsPerFLight+ ' passengersWithSeats: ' + passengersWithSeats);
                     }else{
                     //jesli mniej siedzen ogolnych od siedzen na jeden lot
                     config.passengers -= config.seats;
                     passengersWithSeats += config.seats;
                     config.seats = 0;
-                    console.log('JESLI MNIEJ SIEDZEN OGOLNYCH NIZ TYCH NA JEDEN LOT');
-                    console.log('config.passengers: ' + config.passengers + '  config.seats ' + config.seats);
-                    
-
-                    console.log('config.passengers: ' + config.passengers + 'config.seats ' + config.seats
-                    + 'seats per flight: ' + config.seatsPerFLight+ ' passengersWithSeats: ' + passengersWithSeats);
                     }
 
                 }else{
@@ -81,8 +69,6 @@
                 break;
             }
         }
-        console.log(' passangers with seats: ' + passengersWithSeats);
-        console.log(' passangers : ' + config.passengers);
         return passengersWithSeats;
     }
 
