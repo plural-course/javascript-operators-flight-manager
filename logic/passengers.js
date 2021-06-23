@@ -3,7 +3,7 @@
         var totalNumberOfPassengers = passengersArray.reduce((a, b) => a + b, 0)
 
         if(totalNumberOfPassengers > flightCapacity){            
-            return new Error("error passengers");
+            throw new Error("error passengers");
         }else{
             return totalNumberOfPassengers;
         }
