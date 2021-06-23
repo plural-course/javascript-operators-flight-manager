@@ -2,15 +2,15 @@
      function checkFlightCapacity(flightCapacity, passengersArray){
         var totalNumberOfPassengers = passengersArray.reduce((a, b) => a + b, 0)
 
-        if(totalNumberOfPassengers > flightCapacity){
-            return totalNumberOfPassengers;
-        }else{
+        if(totalNumberOfPassengers > flightCapacity){            
             return new Error("error passengers");
+        }else{
+            return totalNumberOfPassengers;
         }
     }
     function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, numberOfFlights, numberOfBusinessSeats, numberOfEconomySeats) {
             var vipPassengersWithBusinessSeats =0; 
-            var vipPassengerswithEconomySeats=0;
+            var vipPassengersWithEconomySeats=0;
             var regularPassengersWithBusinessSeats=0;
             var regularPassengersWithEconomySeats=0;
             var availableBusinessSeats = numberOfFlights * numberOfBusinessSeats;
